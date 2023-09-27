@@ -32,7 +32,7 @@ rows = run_query('''
                     query,
                     SUM(clicks) AS total_clicks,
                     SUM(impressions) AS total_impressions,
-                    SAFE_DIVIDE(SUM(clicks), SUM(impressions)) AS CTR
+                    SAFE_MULTIPLY(SAFE_DIVIDE(SUM(clicks), SUM(impressions)),100) AS CTR
                 FROM
                     `bumblebee-233720.searchconsole_domain_property.searchdata_site_impression`
                 WHERE
@@ -63,5 +63,11 @@ rows = run_query('''
                 CTR_Data.total_impressions DESC
                  ''')
 
+st.write('# Queries with low click through rate(CTR)')
+st.write('This table displays queries in the last 30 days that has lower CTR compared to the average CTR of all your queires')
+st.write('''*The results only include queries from web search, doesn't include image or shopping search. Also only filtered to who queries that has more than 100 impressions*''')
 st.write(rows)
+
+st.write('### Suggestion on how to improve this?')
+st.write('Try optimising the meta title and description for the respective landing pages. Try using ChatGPT to generate sample meta title and descriptions to improve CTR.')
 

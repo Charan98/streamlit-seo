@@ -39,4 +39,9 @@ rows = run_query('''SELECT ROUND(sum_top_position,0) AS Position, COUNT(query) A
 
 fig = px.bar(rows, x="Position", y="No_of_Queries", labels={'Position': 'Position', 'No_of_Queries': 'Number of Queries'}, title="Position vs. Number of Queries")
 
+st.write('# No. of Queries By Position')
+st.write('This chart shows the no. of queries that you rank for in each position on SERPs')
+st.write(''' *Note that the table only displays queries from web search, has a rank less than 20 and at least 20 clicks*
+         ''')
+
 st.plotly_chart(fig)
