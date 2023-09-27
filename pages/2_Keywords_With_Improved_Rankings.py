@@ -103,7 +103,7 @@ def display_styled_table(dataframe):
     st.write(dataframe.to_html(escape=False, columns=['query', 'avg_position_1', 'avg_position_2', 'total_clicks_1', 'total_clicks_2', 'click_difference_arrow', 'total_impressions_1', 'total_impressions_2', 'impression_difference_arrow']), unsafe_allow_html=True)
 
 st.write('# Low Hanging Fruits')
-st.wrtie('This table shows all the keywords that have improved rankings between the positions 10 and 20 in the last 30 days compared to previous 30 days')
+st.write('This table shows all the keywords that have improved rankings between the positions 10 and 20 in the last 30 days compared to previous 30 days')
 st.write(''' *Note that this table only shows keywrods from web search*
 ''')
 # Fetch data and display styled table
